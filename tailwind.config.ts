@@ -80,6 +80,10 @@ const config = {
                     "20": "#fff5db",
                 },
             },
+            fontFamily: {
+                poppins: ["var(--poppins)", "sans-serif"],
+                dmSans: ["var(--dm_sans)", "sans-serif"],
+            },
             borderRadius: {
                 lg: "var(--radius)",
                 md: "calc(var(--radius) - 2px)",
