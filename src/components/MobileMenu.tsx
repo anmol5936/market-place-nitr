@@ -8,7 +8,7 @@ export default function MobileMenu({ closeMenu }: { closeMenu: () => void }) {
             initial={{ opacity: 0, y: 500 }}
             exit={{ opacity: 0, y: 500 }}
             transition={{ duration: 0.8, ease: [0.2, 1, 0.2, 1], delay: 0.1 }}
-            className="h-screen absolute w-full bg-blk-100 backdrop-blur-md bg-opacity-70"
+            className="h-screen absolute w-full bg-blk-100 backdrop-blur-md bg-opacity-80"
         >
             <div className="flex flex-col items-center justify-center h-[80%] gap-10 text-xl">
                 <Link href="/" className="link" onClick={closeMenu}>
