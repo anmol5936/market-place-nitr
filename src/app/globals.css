@@ -74,12 +74,14 @@
         @apply bg-background text-foreground;
     }
 }
-
+::-webkit-scrollbar {
+    display: none;
+}
 .active-link {
     @apply font-medium;
 }
 .link {
-    @apply font-light text-gray-200;
+    @apply font-light text-blk-10 hover:text-white duration-200;
 }
 
 .btn-primary {
