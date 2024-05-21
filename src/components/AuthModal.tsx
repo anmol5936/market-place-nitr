@@ -4,13 +4,19 @@ import { AlertDialog, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
-import { AlertDialogCancel } from "@radix-ui/react-alert-dialog";
 
 export default function AuthModal() {
     const [showSignUp, setShowSignUp] = useState(false);
     async function toggleSignup() {
         setShowSignUp(!showSignUp);
     }
+    const [loginUser, setLoginUser] = useState({ email: "", password: "" });
+    const [signupUser, setSignupUser] = useState({
+        email: "",
+        password: "",
+        name: "",
+        roll: "",
+    });
     return (
         <div className="mx-10">
             <AlertDialog>
