@@ -1,7 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-export default function MobileMenu({ closeMenu }: { closeMenu: () => void }) {
+export default function MobileMenu({
+    closeMenu,
+    triggerModal,
+}: {
+    closeMenu: () => void;
+    triggerModal: () => void;
+}) {
     return (
         <motion.div
             animate={{ opacity: 1, y: 0 }}
@@ -11,6 +17,15 @@ export default function MobileMenu({ closeMenu }: { closeMenu: () => void }) {
             className="h-screen absolute w-full bg-blk-100 backdrop-blur-md bg-opacity-80"
         >
             <div className="flex flex-col items-center justify-center h-[80%] gap-10 text-xl">
+                <button
+                    className="link"
+                    onClick={() => {
+                        triggerModal();
+                        closeMenu();
+                    }}
+                >
+                    Login
+                </button>
                 <Link href="/" className="link" onClick={closeMenu}>
                     Home
                 </Link>

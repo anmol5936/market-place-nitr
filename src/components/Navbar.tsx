@@ -6,7 +6,10 @@ import { Squeeze as Hamburger } from "hamburger-react";
 import MobileMenu from "./MobileMenu";
 export default function Navbar() {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
-
+    function triggerModal() {
+        const trigger = document.getElementById("triggerLoginModal") as any;
+        trigger.click();
+    }
     return (
         <div className="sticky top-0 z-50">
             <nav className="lg:px-24 px-5 md:px-14 py-8 flex flex-row items-center justify-between  bg-blk-100">
@@ -28,8 +31,11 @@ export default function Navbar() {
                     </Link>
                 </div>
                 <div className="">
-                    <button className="btn-primary hidden md:block">
-                        Get Started
+                    <button
+                        className="btn-primary hidden md:block"
+                        onClick={triggerModal}
+                    >
+                        Login
                     </button>
                     <button
                         className="md:hidden"
@@ -41,7 +47,10 @@ export default function Navbar() {
             </nav>
             <AnimatePresence>
                 {menuIsOpen && (
-                    <MobileMenu closeMenu={() => setMenuIsOpen(false)} />
+                    <MobileMenu
+                        closeMenu={() => setMenuIsOpen(false)}
+                        triggerModal={triggerModal}
+                    />
                 )}
             </AnimatePresence>
         </div>

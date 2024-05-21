@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, DM_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-
+import { ThemeProvider } from "@/components/theme-provider";
 const poppins = Poppins({
     subsets: ["latin"],
     weight: ["400", "500", "600", "700"],
@@ -27,10 +26,14 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={poppins.className}>
-                <main className="bg-blk-100 text-white">
-                    <Navbar />
-                    {children}
-                </main>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="dark"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <main className="bg-blk-100 text-white">{children}</main>
+                </ThemeProvider>
             </body>
         </html>
     );
