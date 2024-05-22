@@ -5,7 +5,7 @@ export default function Hero() {
     const [text] = useTypewriter({
         words: ['Everything you need,', 'All in one place'],
         loop: true,
-        delaySpeed: 2000,
+        delaySpeed: 1500,
     });
 
     return (
