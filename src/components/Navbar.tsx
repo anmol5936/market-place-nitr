@@ -7,6 +7,7 @@ import MobileMenu from "./MobileMenu";
 import { LogOut } from "lucide-react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
+import axios from "axios";
 export default function Navbar() {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,11 +23,20 @@ export default function Navbar() {
         const trigger = document.getElementById("triggerLoginModal");
         trigger?.click();
     }
-    function handleLogout() {
-        localStorage.removeItem("token_mpnit");
-        setIsLoggedIn(false);
-        toast.success("Logged out successfully");
+
+    const apiEndpoint = process.env.NEXT_PUBLIC_API_ENDPOINT;
+    async function handleLogout() {
+        try {
+            await axios.get(apiEndpoint + "/users/signout");
+            localStorage.removeItem("token_mpnit");
+            setIsLoggedIn(false);
+            toast.success("Logged out successfully");
+        } catch (err) {
+            console.log(err);
+            toast.error("Something went wrong");
+        }
     }
+
     return (
         <motion.div
             initial={{ opacity: 0, y: -500 }}
