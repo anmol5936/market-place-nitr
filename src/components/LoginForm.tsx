@@ -11,8 +11,14 @@ import {
 import { X } from "lucide-react";
 export default function LoginForm({
     toggleSignup,
+    handleSignInData,
+    handleSignIn,
+    loading,
 }: {
     toggleSignup: () => void;
+    handleSignInData: (e: any) => void;
+    handleSignIn: () => void;
+    loading: boolean;
 }) {
     return (
         <AlertDialogContent>
@@ -38,11 +44,25 @@ export default function LoginForm({
             </AlertDialogHeader>
             <AlertDialogDescription>
                 <div className="flex flex-col gap-3">
-                    <Input placeholder="Email" type="email" />
-                    <Input placeholder="Password" type="password" />
+                    <Input
+                        placeholder="Email"
+                        type="email"
+                        id="email"
+                        onChange={handleSignInData}
+                    />
+                    <Input
+                        placeholder="Password"
+                        type="password"
+                        id="password"
+                        onChange={handleSignInData}
+                    />
                 </div>
                 <div className="mt-5">
-                    <ButtonLoading isLoading={false} title="Login" />
+                    <ButtonLoading
+                        isLoading={loading}
+                        handleSubmit={handleSignIn}
+                        title="Login"
+                    />
                 </div>
             </AlertDialogDescription>
         </AlertDialogContent>

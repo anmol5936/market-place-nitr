@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "react-hot-toast";
 const poppins = Poppins({
     subsets: ["latin"],
     weight: ["400", "500", "600", "700"],
@@ -32,7 +33,26 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <main className="bg-blk-100 text-white">{children}</main>
+                    <main className="bg-blk-100 text-white">
+                        <Toaster
+                            position="top-center"
+                            toastOptions={{
+                                className: "",
+                                style: {
+                                    borderRadius: "50px",
+                                    padding: "16px",
+                                    color: "#000",
+                                    background: "#c0ef55",
+                                    // border: "2px solid #c0ef55",
+                                },
+                                iconTheme: {
+                                    primary: "#000",
+                                    secondary: "#c0ef55",
+                                },
+                            }}
+                        />
+                        {children}
+                    </main>
                 </ThemeProvider>
             </body>
         </html>

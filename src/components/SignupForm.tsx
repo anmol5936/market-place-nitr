@@ -12,8 +12,14 @@ import { X } from "lucide-react";
 
 export default function SignupForm({
     toggleSignup,
+    handleSignUpData,
+    handleSignUp,
+    loading,
 }: {
     toggleSignup: () => void;
+    handleSignUpData: (e: any) => void;
+    handleSignUp: () => void;
+    loading: boolean;
 }) {
     return (
         <AlertDialogContent>
@@ -39,13 +45,37 @@ export default function SignupForm({
             </AlertDialogHeader>
             <AlertDialogDescription>
                 <div className="flex flex-col gap-3">
-                    <Input placeholder="Email" type="email" />
-                    <Input placeholder="Roll Number" type="text" />
-                    <Input placeholder="Name" type="text" />
-                    <Input placeholder="Create a password" type="password" />
+                    <Input
+                        placeholder="Name"
+                        type="text"
+                        id="username"
+                        onChange={handleSignUpData}
+                    />
+                    <Input
+                        placeholder="Email"
+                        type="email"
+                        id="email"
+                        onChange={handleSignUpData}
+                    />
+                    <Input
+                        placeholder="Roll Number"
+                        type="text"
+                        id="rollno"
+                        onChange={handleSignUpData}
+                    />
+                    <Input
+                        placeholder="Create a password"
+                        type="password"
+                        id="password"
+                        onChange={handleSignUpData}
+                    />
                 </div>
                 <div className="mt-5">
-                    <ButtonLoading isLoading={false} title="Sign Up" />
+                    <ButtonLoading
+                        isLoading={loading}
+                        title="Sign Up"
+                        handleSubmit={handleSignUp}
+                    />
                 </div>
             </AlertDialogDescription>
         </AlertDialogContent>

@@ -4,9 +4,13 @@ import Link from "next/link";
 export default function MobileMenu({
     closeMenu,
     triggerModal,
+    handleLogout,
+    isLoggedIn,
 }: {
     closeMenu: () => void;
     triggerModal: () => void;
+    handleLogout: () => void;
+    isLoggedIn: boolean;
 }) {
     return (
         <motion.div
@@ -17,15 +21,32 @@ export default function MobileMenu({
             className="h-screen absolute w-full bg-blk-100 backdrop-blur-md bg-opacity-80"
         >
             <div className="flex flex-col items-center justify-center h-[80%] gap-10 text-xl">
-                <button
-                    className="link"
-                    onClick={() => {
-                        triggerModal();
-                        closeMenu();
-                    }}
-                >
-                    Login
-                </button>
+                {isLoggedIn ? (
+                    <>
+                        <button
+                            className="link"
+                            onClick={() => {
+                                handleLogout();
+                                closeMenu();
+                            }}
+                        >
+                            Logout
+                        </button>
+                        <Link href="/profile" className="link">
+                            Profile
+                        </Link>
+                    </>
+                ) : (
+                    <button
+                        className="link"
+                        onClick={() => {
+                            triggerModal();
+                            closeMenu();
+                        }}
+                    >
+                        Login
+                    </button>
+                )}
                 <Link href="/" className="link" onClick={closeMenu}>
                     Home
                 </Link>

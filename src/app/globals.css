@@ -81,6 +81,9 @@
 .btn-outline {
     @apply rounded-full text-white py-4 px-10 outline outline-2 outline-white  active:opacity-80  duration-200 capitalize font-poppins;
 }
+.btn-outline-icon {
+    @apply outline outline-2 outline-white rounded-full p-5 hover:text-pri-100 hover:outline-pri-100 hover:outline-[3px] duration-150;
+}
 input[type="text"],
 input[type="email"],
 input[type="password"] {
