@@ -73,6 +73,9 @@
 .btn-primary {
     @apply bg-pri-100 rounded-full text-blk-100 py-4 px-10  active:opacity-80  duration-200 capitalize font-poppins;
 }
+.btn-primary2 {
+    @apply bg-pri-100 rounded-full text-blk-100 active:opacity-80  duration-200 capitalize font-poppins;
+}
 
 .btn-secondary {
     @apply bg-white rounded-full text-blk-100 py-4 px-10  active:opacity-80  duration-200 capitalize font-poppins;
@@ -80,6 +83,9 @@
 
 .btn-outline {
     @apply rounded-full text-white py-4 px-10 outline outline-2 outline-white  active:opacity-80  duration-200 capitalize font-poppins;
+}
+.btn-outline2 {
+    @apply rounded-full text-white outline outline-2 outline-white  active:opacity-80  duration-200 capitalize font-poppins;
 }
 .btn-outline-icon {
     @apply outline outline-2 outline-white rounded-full p-5 hover:text-pri-100 hover:outline-pri-100 hover:outline-[3px] duration-150;
@@ -89,4 +95,10 @@ input[type="email"],
 input[type="password"] {
     @apply text-foreground focus:outline-none focus:ring-pri-50
     focus:opacity-80  duration-200;
+}
+
+.card {
+    -webkit-box-shadow: 5px 31px 84px -11px rgba(193, 239, 85, 0.31);
+    -moz-box-shadow: 5px 31px 84px -11px rgba(193, 239, 85, 0.31);
+    box-shadow: 5px 31px 84px -11px rgba(193, 239, 85, 0.31);
 }
