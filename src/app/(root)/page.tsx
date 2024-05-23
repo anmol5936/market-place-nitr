@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 export default function Home() {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 500 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.2, 1, 0.2, 1] }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="bg-blk-100 px-2"
         >
             <Hero />

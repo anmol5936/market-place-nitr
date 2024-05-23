@@ -12,7 +12,7 @@ export default function UserCard({
     };
 }) {
     return (
-        <div className="bg-blk-50 w-96 rounded-xl px-5 py-5 flex items-center justify-between">
+        <div className="bg-blk-50 md:w-96 gap-5 w-72 rounded-xl px-5 py-5 flex md:flex-row flex-col items-center justify-between">
             <div>
                 <img
                     src={

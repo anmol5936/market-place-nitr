@@ -39,9 +39,9 @@ export default function Navbar() {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: -500 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.2, 1, 0.2, 1], delay: 0.3 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut", delay: 0.8 }}
             className="sticky top-0 z-50"
         >
             <nav className="lg:px-24 px-5 md:px-14 py-8 flex flex-row items-center justify-between  bg-blk-100">
