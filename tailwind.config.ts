@@ -20,6 +20,7 @@ const config = {
         extend: {
             screens: {
                 xl: "1480px",
+                mtb: "640px",
             },
             colors: {
                 border: "hsl(var(--border))",
