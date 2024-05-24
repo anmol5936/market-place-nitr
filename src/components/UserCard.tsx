@@ -1,5 +1,6 @@
 import React from "react";
-
+import Image from "next/image";
+import userImg from "../assets/user.jpg";
 export default function UserCard({
     user,
 }: {
@@ -14,12 +15,8 @@ export default function UserCard({
     return (
         <div className="bg-blk-50 md:w-96 gap-5 w-72 rounded-xl px-5 py-5 flex md:flex-row flex-col items-center justify-between">
             <div>
-                <img
-                    src={
-                        user.img
-                            ? user.img
-                            : "https://randomuser.me/api/portraits/men/75.jpg"
-                    }
+                <Image
+                    src={user.img ? user.img : userImg}
                     alt="Profile"
                     className="rounded-full w-32 h-32"
                 />

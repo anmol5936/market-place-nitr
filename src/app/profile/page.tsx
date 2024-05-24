@@ -4,6 +4,8 @@ import Orders from "@/components/Orders";
 import UserCard from "@/components/UserCard";
 import { motion, AnimatePresence } from "framer-motion";
 import Wishlist from "@/components/Wishlist";
+import MyListings from "@/components/MyListings";
+import EditProfile from "@/components/EditProfile";
 export default function Page() {
     const [activeTab, setActiveTab] = useState("orders");
 
@@ -25,16 +27,30 @@ export default function Page() {
         img: "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         product_id: "500",
         soldOut: false,
+        shortDescription:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum veniam assumenda, pariatur ",
+        productAge: "2 years",
     };
+
     const wishlistedProducts = [
         wishlistedProduct,
         wishlistedProduct,
         wishlistedProduct,
         wishlistedProduct,
     ];
+
+    const mylisting = {
+        img: "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        name: "Camera",
+        price: 200,
+        product_id: "500",
+        quantity: 2,
+    };
+
+    const mylistings = [mylisting, mylisting, mylisting, mylisting];
     return (
         <main className="grid place-items-center gap-10 md:px-20 md:py-10 p-5">
-            <div className="flex lg:flex-row flex-col w-full justify-around mt-10 gap-10">
+            <div className="flex flex-col xl:flex-row w-full justify-around mt-10 gap-10">
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -74,13 +90,13 @@ export default function Page() {
                         </button>
                         <button
                             className={
-                                activeTab === "myitems"
+                                activeTab === "mylistings"
                                     ? "btn-primary"
                                     : "btn-outline"
                             }
-                            onClick={() => setActiveTab("myitems")}
+                            onClick={() => setActiveTab("mylistings")}
                         >
-                            My Items
+                            My Listings
                         </button>
                         <button
                             className={
@@ -111,6 +127,10 @@ export default function Page() {
                         {activeTab === "wishlist" && (
                             <Wishlist products={wishlistedProducts} />
                         )}
+                        {activeTab === "mylistings" && (
+                            <MyListings products={mylistings} />
+                        )}
+                        {activeTab === "profile" && <EditProfile />}
                     </AnimatePresence>
                 </motion.div>
             </div>
