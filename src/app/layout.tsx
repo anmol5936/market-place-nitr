@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "react-hot-toast";
 import { ReduxProvider } from "@/components/ReduxProvider";
+
 const poppins = Poppins({
     subsets: ["latin"],
     weight: ["400", "500", "600", "700"],
@@ -29,33 +30,34 @@ export default function RootLayout({
         <html lang="en">
             <body className={poppins.className}>
                 <ReduxProvider>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="dark"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    <main className="bg-blk-100 text-white">
-                        <Toaster
-                            position="top-center"
-                            toastOptions={{
-                                className: "",
-                                style: {
-                                    borderRadius: "50px",
-                                    padding: "16px",
-                                    color: "#000",
-                                    background: "#c0ef55",
-                                    // border: "2px solid #c0ef55",
-                                },
-                                iconTheme: {
-                                    primary: "#000",
-                                    secondary: "#c0ef55",
-                                },
-                            }}
-                        />
-                        {children}
-                    </main>
-                </ThemeProvider>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="dark"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <main className="bg-blk-100 text-white">
+                            <Toaster
+                                position="top-center"
+                                toastOptions={{
+                                    className: "",
+                                    style: {
+                                        borderRadius: "50px",
+                                        padding: "16px",
+                                        color: "#000",
+                                        background: "#c0ef55",
+                                        // border: "2px solid #c0ef55",
+                                    },
+                                    iconTheme: {
+                                        primary: "#000",
+                                        secondary: "#c0ef55",
+                                    },
+                                }}
+                            />
+
+                            {children}
+                        </main>
+                    </ThemeProvider>
                 </ReduxProvider>
             </body>
         </html>

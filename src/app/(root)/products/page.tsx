@@ -1,7 +1,8 @@
+"use client";
 import ProductCard2 from "@/components/ProductCard2";
 import { Input } from "@/components/ui/input";
 import React from "react";
-
+import { motion } from "framer-motion";
 const product = {
     name: "Product Name",
     price: 1000,
@@ -12,7 +13,15 @@ const product = {
 const products = [product, product, product, product, product, product];
 export default function Page() {
     return (
-        <main className="p-4 lg:p-20">
+        <motion.main
+            initial={{ opacity: 0, y: 500 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.8,
+                ease: [0.2, 1, 0.2, 1],
+            }}
+            className="p-4 lg:p-20"
+        >
             <div className="flex flex-col mtb:flex-row xl:items-center justify-between w-full">
                 <h1 className="text-3xl lg:text-4xl font-semibold mb-4 lg:mb-0">
                     Products
@@ -29,6 +38,6 @@ export default function Page() {
                         <ProductCard2 key={index} product={product} />
                     ))}
             </div>
-        </main>
+        </motion.main>
     );
 }

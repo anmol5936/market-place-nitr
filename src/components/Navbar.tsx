@@ -44,7 +44,7 @@ export default function Navbar() {
             transition={{ duration: 0.8, ease: "easeInOut", delay: 0.8 }}
             className="sticky top-0 z-50"
         >
-            <nav className="lg:px-24 px-5 md:px-14 py-8 flex flex-row items-center justify-between  bg-blk-100">
+            <nav className="lg:px-24 px-5 md:px-14 py-8 flex flex-row items-center justify-between  bg-blk-100 backdrop-blur-3xl bg-opacity-85">
                 <div id="logo" className="text-3xl md:hidden lg:block">
                     Logo
                 </div>

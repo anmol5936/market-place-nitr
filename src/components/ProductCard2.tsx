@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import productImg from "../assets/product.jpg";
+import { Heart, ShoppingCart } from "lucide-react";
 
 export default function ProductCard2({
     product,
@@ -13,8 +14,8 @@ export default function ProductCard2({
     };
 }) {
     return (
-        <section className="flex flex-col p-5 outline outline-1 outline-[#5d5d5d] rounded-2xl">
-            <div className="">
+        <section className="flex flex-col p-5 outline outline-1 outline-[#5d5d5d] rounded-2xl hover:outline-pri-50 duration-300">
+            <div className="relative">
                 <Image
                     // src={product?.image || productImg}
                     src={productImg}
@@ -23,6 +24,14 @@ export default function ProductCard2({
                     height={500}
                     className="rounded-2xl w-full h-auto aspect-w-1 aspect-h-1"
                 />
+                <div className="flex flex-row gap-2 absolute top-0 right-0 p-2">
+                    <button className="btn-wishlist">
+                        <ShoppingCart />
+                    </button>
+                    <button className="btn-wishlist">
+                        <Heart />
+                    </button>
+                </div>
             </div>
             <article>
                 <div className="flex items-center justify-between my-5">
