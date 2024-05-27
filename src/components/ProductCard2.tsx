@@ -4,7 +4,7 @@ import productImg from "../assets/product.jpg";
 import { Heart, ShoppingCart } from "lucide-react";
 import { useAppDispatch } from "../../hooks/redux";
 import { addToCart } from "../../redux/cartSlice";
-import { addToWishlist } from "../../redux/wishListSlice";
+import { addToWishlist } from "../../redux/wishlistSlice"
 
 export default function ProductCard2({
     product,
