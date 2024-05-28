@@ -3,9 +3,9 @@ import { useState } from "react";
 import Orders from "@/components/Orders";
 import UserCard from "@/components/UserCard";
 import { motion, AnimatePresence } from "framer-motion";
-import Wishlist from "@/components/Wishlist";
 import MyListings from "@/components/MyListings";
 import EditProfile from "@/components/EditProfile";
+import ProfileWishlist from "./ProfileWishlist";
 export default function Profile({
     products,
     wishlistedProducts,
@@ -93,7 +93,7 @@ export default function Profile({
                             <Orders products={products} />
                         )}
                         {activeTab === "wishlist" && (
-                            <Wishlist products={wishlistedProducts} />
+                            <ProfileWishlist products={wishlistedProducts} />
                         )}
                         {activeTab === "mylistings" && (
                             <MyListings products={mylistings} />
