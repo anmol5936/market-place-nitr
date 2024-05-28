@@ -1,10 +1,8 @@
 "use client";
-import { useAppSelector } from "../../hooks/redux";
-import { getCart } from "../../redux/cartSlice";
-import ProductCard2 from "./ProductCard2";
-import { motion } from "framer-motion";
 
+import { motion } from "framer-motion";
 import Banner from "./Banner";
+import ProductCard2 from "./ProductCard2";
 
 interface Product {
     id: number;
@@ -14,9 +12,7 @@ interface Product {
     description: string;
 }
 
-const Cart = () => {
-    const cart: Product[] = useAppSelector(getCart);
-
+const Cart = ({ cart }: { cart: Product[] }) => {
     return (
         <motion.main
             initial={{ opacity: 0, y: 500 }}
