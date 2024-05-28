@@ -1,29 +1,35 @@
 import { useAppSelector } from "../../hooks/redux";
 import { getCart } from "../../redux/cartSlice";
-import Image from 'next/image';
+import Image from "next/image";
 
 interface Product {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
+    id: number;
+    image: string;
+    name: string;
+    price: number;
 }
 
 const Cart = () => {
-  const cart: Product[] = useAppSelector(getCart);
+    const cart: Product[] = useAppSelector(getCart);
 
-  return (
-    <div>
-      <h1 className="flex justify-center">Cart</h1>
-      {cart.map((product) => (
-        <div key={product.id} className="product-card">
-          <Image src={product.image} alt={product.name} className="product-image" />
-          <h2>{product.name}</h2>
-          <p>${product.price}</p>
+    return (
+        <div>
+            <h1 className="flex justify-center">Cart</h1>
+            {cart.map((product) => (
+                <div key={product.id} className="product-card">
+                    <Image
+                        src={product.image}
+                        alt={product.name}
+                        height={500}
+                        width={500}
+                        className="product-image"
+                    />
+                    <h2>{product.name}</h2>
+                    <p>${product.price}</p>
+                </div>
+            ))}
         </div>
-      ))}
-    </div>
-  );
+    );
 };
 
 export default Cart;

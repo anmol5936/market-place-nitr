@@ -85,7 +85,7 @@
     @apply rounded-full text-white py-4 px-10 outline outline-2 outline-white  active:opacity-80  duration-200 capitalize font-poppins;
 }
 .btn-outline2 {
-    @apply rounded-full text-white outline outline-2 outline-white  active:opacity-80  duration-200 capitalize font-poppins;
+    @apply rounded-full text-white outline outline-2 outline-white duration-200 capitalize font-poppins hover:bg-pri-100 hover:text-blk-100 hover:outline-blk-100 active:opacity-80;
 }
 .btn-outline-blk {
     @apply rounded-full text-blk-100 outline outline-2 outline-blk-100  active:opacity-80  duration-200 capitalize font-poppins py-4 px-10;

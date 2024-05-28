@@ -2,6 +2,10 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+interface ContainerProps {
+    size: number;
+}
+
 const pulse = keyframes`
   0%,
   80%,
@@ -15,8 +19,8 @@ const pulse = keyframes`
   }
 `;
 
-const Container = styled.div`
-    --uib-size: 40px;
+const Container = styled.div<ContainerProps>`
+    --uib-size: ${({ size }) => size}px;
     --uib-color: #fff;
     --uib-speed: 1s;
     --uib-stroke: 3px;
@@ -51,13 +55,12 @@ const Line = styled.div<{ index: number }>`
             `calc(var(--uib-speed) / -12 * ${props.index + 1})`};
     }
 `;
-
-const CustomLoader: React.FC = () => {
+const CustomLoader: React.FC<{ size?: number }> = ({ size = 12 }) => {
     const lines = Array.from({ length: 12 }).map((_, index) => (
         <Line key={index} index={index} />
     ));
 
-    return <Container>{lines}</Container>;
+    return <Container size={size}>{lines}</Container>;
 };
 
 export default CustomLoader;

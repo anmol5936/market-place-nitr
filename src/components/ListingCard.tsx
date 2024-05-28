@@ -19,6 +19,13 @@ export default function ListingCard({
                     alt="Product Image"
                     className={`xl:w-52 xl:h-full w-full h-60 object-cover rounded-md`}
                 />
+                {/* <Image
+                    src={product.img}
+                    alt="Product Image"
+                    width={208} 
+                    height={240}
+                    className="xl:w-52 xl:h-full w-full h-60 object-cover rounded-md"
+                /> */}
             </div>
             <div className="flex flex-col mt-5 xl:mt-0 xl:ml-5 xl:w-52 xl:justify-between w-full">
                 <div>
