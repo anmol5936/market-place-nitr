@@ -1,10 +1,9 @@
 "use client";
-import { useAppSelector } from "../../hooks/redux";
-import { getCart } from "../../redux/cartSlice";
-import ProductCard2 from "./ProductCard2";
 import { motion } from "framer-motion";
-
-import Banner from "./Banner";
+import { useAppSelector } from "../../../../hooks/redux";
+import { getWishlist } from "../../../../redux/wishlistSlice";
+import ProductCard2 from "@/components/ProductCard2";
+import Banner from "@/components/Banner";
 
 interface Product {
     id: number;
@@ -14,8 +13,8 @@ interface Product {
     description: string;
 }
 
-const Cart = () => {
-    const cart: Product[] = useAppSelector(getCart);
+const Page = () => {
+    const wishlist: Product[] = useAppSelector(getWishlist);
 
     return (
         <motion.main
@@ -28,18 +27,19 @@ const Cart = () => {
             className="p-5 md:p-10 lg:p-20 h-full"
         >
             <h1 className="text-3xl lg:text-4xl font-semibold mb-4 lg:mb-10">
-                My Cart
+                My WishList
             </h1>
-            {cart.length > 0 ? (
+
+            {wishlist.length > 0 ? (
                 <div className="columns-1 mtb:columns-2 lg:columns-3 gap-5 space-y-5 w-full">
-                    {cart.map((product) => (
+                    {wishlist.map((product) => (
                         <ProductCard2 key={product.id} product={product} />
                     ))}
                 </div>
             ) : (
                 <Banner
-                    title="Your cart is empty"
-                    description="Looks like you haven't added anything to your cart yet."
+                    title="Your wishlist is empty"
+                    description="Looks like you haven't added anything to your wishlist yet."
                     buttonLink="/products"
                     buttonText="Continue shopping"
                 />
@@ -48,4 +48,4 @@ const Cart = () => {
     );
 };
 
-export default Cart;
+export default Page;

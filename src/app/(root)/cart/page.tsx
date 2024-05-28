@@ -1,13 +1,11 @@
-"use client"
+import Cart from "@/components/Cart";
 
-import Cart from "@/components/Cart"
+const Page = () => {
+    return (
+        <>
+            <Cart />
+        </>
+    );
+};
 
-const page = () => {
-  return (
-    <div>
-      <Cart/>
-    </div>
-  )
-}
-
-export default page
+export default Page;

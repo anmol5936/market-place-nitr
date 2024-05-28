@@ -2,25 +2,44 @@
 import React from "react";
 import Image from "next/image";
 import { Heart, ShoppingCart } from "lucide-react";
-import { useAppDispatch } from "../../hooks/redux";
-import { addToCart } from "../../redux/cartSlice";
-import { addToWishlist } from "../../redux/wishlistSlice";
-import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { addToCart, getCart } from "../../redux/cartSlice";
+import { addToWishlist, getWishlist } from "../../redux/wishlistSlice";
+import { useState, useEffect } from "react";
 import CustomLoader from "./CustomLoader";
-export default function ProductCard2({
-    product,
-}: {
-    product: {
-        name: string;
-        image: string;
-        price: number;
-        description: string;
-    };
-}) {
+
+interface Product {
+    id: number;
+    image: string;
+    name: string;
+    price: number;
+    description: string;
+}
+
+export default function ProductCard2({ product }: { product: Product }) {
     const [state, setState] = useState({
         isAddedToCart: false,
         isAddedToWishlist: false,
     });
+
+    const cartItems: Product[] = useAppSelector(getCart);
+    const wishlistItems: Product[] = useAppSelector(getWishlist);
+    useEffect(() => {
+        if (cartItems.length > 0) {
+            cartItems.forEach((item) => {
+                if (item.id === product.id) {
+                    setState({ ...state, isAddedToCart: true });
+                }
+            });
+        }
+        if (wishlistItems.length > 0) {
+            wishlistItems.forEach((item) => {
+                if (item.id === product.id) {
+                    setState({ ...state, isAddedToWishlist: true });
+                }
+            });
+        }
+    }, []);
 
     const [loading, setLoading] = useState({
         cart: false,

@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Squeeze as Hamburger } from "hamburger-react";
 import MobileMenu from "./MobileMenu";
-import { LogOut } from "lucide-react";
+import { Heart, LogOut, ShoppingCart, User } from "lucide-react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import axios from "axios";
@@ -45,32 +45,54 @@ export default function Navbar() {
             className="sticky top-0 z-50"
         >
             <nav className="lg:px-24 px-5 md:px-14 py-8 flex flex-row items-center justify-between  bg-blk-100 backdrop-blur-3xl bg-opacity-85">
-                <div id="logo" className="text-3xl md:hidden lg:block">
+                <Link
+                    href={"/"}
+                    id="logo"
+                    className={`text-3xl ${
+                        isLoggedIn ? "" : "md:hidden"
+                    } lg:block`}
+                >
                     Logo
-                </div>
-                <div id="center" className="md:flex flex-row gap-10 hidden">
-                    <Link href={"/"} className="active-link">
-                        Home
-                    </Link>
-                    <Link href={"/about"} className="link">
-                        About
-                    </Link>
-                    <Link href={"/contact"} className="link">
-                        Contact
-                    </Link>
-                    <Link href={"/products"} className="link">
-                        Products
-                    </Link>
-                </div>
+                </Link>
+                {!isLoggedIn && (
+                    <div id="center" className="md:flex flex-row gap-10 hidden">
+                        <Link href={"/"} className="active-link">
+                            Home
+                        </Link>
+                        <Link href={"/about"} className="link">
+                            About
+                        </Link>
+                        <Link href={"/contact"} className="link">
+                            Contact
+                        </Link>
+                        <Link href={"/products"} className="link">
+                            Products
+                        </Link>
+                    </div>
+                )}
                 <div className="">
                     {isLoggedIn ? (
                         <div className="items-center hidden md:flex gap-5">
-                            <button className="btn-primary">Profile</button>
+                            <Link
+                                href={"/profile"}
+                                className="btn-outline-icon"
+                            >
+                                <User size={22} />
+                            </Link>
+                            <Link href="/cart" className="btn-outline-icon">
+                                <ShoppingCart size={22} />
+                            </Link>
+                            <Link
+                                href={"/wishlist"}
+                                className="btn-outline-icon"
+                            >
+                                <Heart size={22} />
+                            </Link>
                             <button
                                 className="btn-outline-icon"
                                 onClick={handleLogout}
                             >
-                                <LogOut size={20} />
+                                <LogOut size={22} />
                             </button>
                         </div>
                     ) : (

@@ -91,8 +91,9 @@
     @apply rounded-full text-blk-100 outline outline-2 outline-blk-100  active:opacity-80  duration-200 capitalize font-poppins py-4 px-10;
 }
 .btn-outline-icon {
-    @apply outline outline-2 outline-white rounded-full p-5 hover:text-pri-100 hover:outline-pri-100 hover:outline-[3px] duration-150;
+    @apply rounded-full p-5 text-white transition duration-150 ease-in-out hover:text-pri-100 hover:outline hover:outline-[3px] hover:outline-pri-100 active:scale-[0.98];
 }
+
 .btn-wishlist {
     @apply bg-blk-100 p-3 rounded-xl active:scale-95 duration-200 hover:text-blk-100 hover:bg-pri-100;
 }

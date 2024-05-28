@@ -1,10 +1,8 @@
-"use client";
-import ProductCard2 from "@/components/ProductCard2";
-import { Input } from "@/components/ui/input";
-import React from "react";
-import { motion } from "framer-motion";
+import Products from "@/components/Products";
+
 const products = [
     {
+        id: 1,
         name: "Smartphone",
         price: 799,
         description:
@@ -12,6 +10,7 @@ const products = [
         image: "https://images.pexels.com/photos/6632995/pexels-photo-6632995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
+        id: 2,
         name: "Laptop",
         price: 1299,
         description:
@@ -19,6 +18,7 @@ const products = [
         image: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
+        id: 3,
         name: "Wireless Headphones",
         price: 199,
         description:
@@ -26,6 +26,7 @@ const products = [
         image: "https://images.pexels.com/photos/815494/pexels-photo-815494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
+        id: 4,
         name: "Smart Watch",
         price: 249,
         description:
@@ -33,6 +34,7 @@ const products = [
         image: "https://images.pexels.com/photos/110471/pexels-photo-110471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
+        id: 5,
         name: "4K TV",
         price: 999,
         description:
@@ -40,6 +42,7 @@ const products = [
         image: "https://images.pexels.com/photos/333984/pexels-photo-333984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
+        id: 6,
         name: "Gaming Console",
         price: 499,
         description:
@@ -47,6 +50,7 @@ const products = [
         image: "https://images.pexels.com/photos/1298601/pexels-photo-1298601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
+        id: 7,
         name: "Bluetooth Speaker",
         price: 149,
         description:
@@ -54,6 +58,7 @@ const products = [
         image: "https://images.pexels.com/photos/1173651/pexels-photo-1173651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
+        id: 8,
         name: "Digital Camera",
         price: 649,
         description:
@@ -61,6 +66,7 @@ const products = [
         image: "https://images.pexels.com/photos/243757/pexels-photo-243757.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
+        id: 9,
         name: "Fitness Tracker",
         price: 99,
         description:
@@ -68,6 +74,7 @@ const products = [
         image: "https://images.pexels.com/photos/437036/pexels-photo-437036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
+        id: 10,
         name: "Tablet",
         price: 599,
         description:
@@ -78,31 +85,8 @@ const products = [
 
 export default function Page() {
     return (
-        <motion.main
-            initial={{ opacity: 0, y: 500 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-                duration: 0.8,
-                ease: [0.2, 1, 0.2, 1],
-            }}
-            className="p-5 md:p-10 lg:p-20 h-full"
-        >
-            <div className="flex flex-col mtb:flex-row xl:items-center justify-between w-full">
-                <h1 className="text-3xl lg:text-4xl font-semibold mb-4 lg:mb-0">
-                    Products
-                </h1>
-                <Input
-                    placeholder="Search.."
-                    className="w-full mtb:w-96 rounded-2xl outline outline-1 outline-[#5d5d5d] py-2 lg:py-5"
-                />
-            </div>
-            <p className="my-5 text-lg">Showing 10 results for query</p>
-            <div className="columns-1 mtb:columns-2 lg:columns-3 gap-5 space-y-5 w-full">
-                {products.length > 0 &&
-                    products.map((product, index) => (
-                        <ProductCard2 key={index} product={product} />
-                    ))}
-            </div>
-        </motion.main>
+        <>
+            <Products products={products} />
+        </>
     );
 }
