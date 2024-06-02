@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 export default function Hero() {
@@ -21,9 +22,9 @@ export default function Hero() {
                     available, offering a variety of pre-owned items.
                 </p>
                 <div className="flex md:flex-row justify-between items-center mt-10 gap-5 flex-col px-10 w-full md:px-0">
-                    <button className="btn-secondary w-full">
+                    <Link href={"/products"} className="btn-secondary w-full">
                         Browse Products
-                    </button>
+                    </Link>
                     <button className="btn-outline w-full">Know More</button>
                 </div>
             </div>
