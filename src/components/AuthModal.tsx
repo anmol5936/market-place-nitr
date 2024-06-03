@@ -75,7 +75,7 @@ export default function AuthModal() {
             console.log(response.data);
             // toast.success("Logged in successfully");
             localStorage.setItem("token_mpnit", response.data._id);
-            // window.location.reload();
+            window.location.reload();
         } catch (e: any) {
             console.log(e);
             toast.error(e.response?.data?.message || "Failed to sign in");
