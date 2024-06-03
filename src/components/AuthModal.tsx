@@ -72,19 +72,20 @@ export default function AuthModal() {
                 apiEndpoint + "/users/signin",
                 loginUser
             );
+            console.log(response.data);
             // toast.success("Logged in successfully");
-            localStorage.setItem("token_mpnit", response.data.id);
-            window.location.reload();
+            localStorage.setItem("token_mpnit", response.data._id);
+            // window.location.reload();
         } catch (e: any) {
             console.log(e);
-            toast.error(e.message);
+            toast.error(e.response?.data?.message || "Failed to sign in");
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="">
+        <div>
             <AlertDialog>
                 <AlertDialogTrigger asChild>
                     <Button
