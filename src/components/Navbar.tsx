@@ -13,11 +13,11 @@ export default function Navbar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     useEffect(() => {
         const userToken = localStorage.getItem("token_mpnit");
-        if (userToken) {
+        if (userToken !== "undefined") {
             setIsLoggedIn(true);
-            console.log("User is logged in");
+            // console.log("User is logged in");
         }
-        console.log(userToken);
+        // console.log(userToken);
     }, []);
     function triggerModal() {
         const trigger = document.getElementById("triggerLoginModal");

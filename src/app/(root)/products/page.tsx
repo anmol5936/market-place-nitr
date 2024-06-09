@@ -1,5 +1,10 @@
+"use client";
+import { useEffect, useState } from "react";
 import Products from "@/components/Products";
-
+import Loader2 from "@/components/Loader2";
+import axios from "axios";
+import toast from "react-hot-toast";
+import Banner from "@/components/Banner";
 const products = [
     {
         id: 1,
@@ -82,11 +87,51 @@ const products = [
         image: "https://images.pexels.com/photos/2320369/pexels-photo-2320369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
 ];
-
+const apiEndpoint = process.env.NEXT_PUBLIC_API_ENDPOINT;
 export default function Page() {
+    const [loading, setLoading] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    useEffect(() => {
+        if (localStorage.getItem("token_mpnit") === "undefined") {
+            setLoggedIn(false);
+            console.log("User is not logged in");
+            return;
+        }
+        getProducts();
+    }, []);
+
+    async function getProducts() {
+        setLoading(true);
+        try {
+            const response = await axios.get(apiEndpoint + "/products/get");
+            const data = response.data;
+            console.log(data);
+        } catch (e: any) {
+            console.error(e.message);
+            if (e.response?.data?.message === "Unauthorized") {
+                toast.error("Please login to view products");
+                return;
+            }
+            toast.error(
+                e.response?.data?.message || "Failed to fetch products"
+            );
+        } finally {
+            setLoading(false);
+        }
+    }
     return (
-        <>
-            <Products products={products} />
-        </>
+        <main>
+            <div className="grid place-items-center h-[80vh] px-20">
+                {!loggedIn && (
+                    <Banner
+                        title="Welcome!"
+                        description="Sign in to explore more and start shopping."
+                    />
+                )}
+            </div>
+            {loggedIn &&
+                (loading ? <Loader2 /> : <Products products={products} />)}
+        </main>
     );
 }
